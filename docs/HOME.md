@@ -1,0 +1,9 @@
+# Talk&Show
+
+![diagram](https://www.plantuml.com/plantuml/svg/0/VPBFIiD04CRlWRp36W_LbYIstaAHrgOWM44glNdP9jDaSRCRTYV-hK_ZeU1hvCNSJLgbKjqzpM-6x_i6PgIHAgmAxZf7AQoO01AFvzUNiyNK42OINgLGAKvon597OQZeKv0npAjbfK4bKY08319PXB6Y3r185SuXZHLexTzoAd1nCmiBgX5KgF65Gr0sRgwJSAercJxJekGmQOetro7c-KmWeOYABIk4VWkFxqmjiXy-i2AsqoEFagMa0CnbsZyvtT4M32nujxE7B0V_UlPQYQs2a0Y4mmeZ0gq4aIjoBmWLfaMHIU4wU_iCrxw_R_TNZlFl7B_NF1XbpyNhUyHNBClHNryGxom8kjw-TaHIq8bYPPlH_h3ZEbUWgAWtD6g2kivOQvamMc_g3ncHXcGAiXsGbanaKKhDjgXhqHmePw-xgU4w25mdXX94MdyAesTOO5adjCOZmyq5V040)
+
+# CONTEXT #
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nisl dolor, luctus id scelerisque eu, faucibus ut nisl. In tempor lacus tellus, vel fermentum diam molestie et. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam dignissim fermentum rhoncus. Praesent sit amet consequat dui, a imperdiet quam. Etiam rutrum mauris rutrum tellus tincidunt, nec malesuada mauris finibus. Suspendisse potenti. Aliquam efficitur felis ut sagittis lacinia. Morbi et magna vitae justo consequat molestie.
+
+Nam eu vulputate justo, vel ornare purus. Sed sit amet sem sed elit malesuada feugiat vitae at risus. Phasellus facilisis nunc tincidunt nibh volutpat, nec dictum nisl gravida. Sed luctus, elit vel cursus imperdiet, nibh orci auctor ligula, at dictum tortor felis ut odio. Vivamus tincidunt mattis ex sed tincidunt. Nunc interdum risus in efficitur volutpat. Aenean non tincidunt lorem. Proin aliquam urna vel est gravida commodo. In in leo dolor. Pellentesque laoreet nisi ac dui mattis ullamcorper. Nam facilisis et velit malesuada accumsan. In suscipit vel mauris et condimentum. Suspendisse id nisl tellus.

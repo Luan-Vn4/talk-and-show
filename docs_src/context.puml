@@ -1,0 +1,38 @@
+@startuml
+!define DARKBLUE
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+class ExampleClass {
+    -int attribute1
+    #String attribute2
+
+    + void method1()
+    + method2()
+}
+
+
+class ExampleClass2 {
+    -int attribute1
+    +method()
+}
+note left: example of \n annotation
+ExampleClass <|-- ExampleClass2
+
+
+class ExampleClass3 {
+    -String attribute1
+    +method()
+}
+ExampleClass "1" -right-|> "0..*"ExampleClass3 : description
+
+
+/'
+Herança: <|--
+Associação: --
+Agregação: o--
+Composição: *--
+Realização: <|..
+Dependência: <...
+'/
+
+@enduml
