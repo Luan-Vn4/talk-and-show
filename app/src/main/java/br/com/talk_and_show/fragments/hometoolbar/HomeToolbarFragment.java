@@ -1,4 +1,4 @@
-package br.com.talk_and_show.fragments.homeToolbar;
+package br.com.talk_and_show.fragments.hometoolbar;
 
 import android.os.Bundle;
 
@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import br.com.talk_and_show.databinding.FragmentHomeToolbarBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeToolbarFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HomeToolbarFragment extends Fragment {
     FragmentHomeToolbarBinding binding;
 

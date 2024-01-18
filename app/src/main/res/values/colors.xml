@@ -13,5 +13,6 @@
     <color name="objetos">#3893FF</color>
     <color name="adjetivos">#DC50FF</color>
     <color name="adverbios">#FF849A</color>
-    <color name="proprios">#FF9636</color>
+    <color name="proprios">#FFFFFF</color>
+    <color name="frases">#00FFE0</color>
 </resources>

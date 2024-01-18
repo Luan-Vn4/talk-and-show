@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_card_root"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_category_card_root"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context=".fragments.cards.CardFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.cards.CategoryCardFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-
+        android:id="@+id/fragment_category_card_card_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:cardCornerRadius="24dp"
-        app:cardBackgroundColor="@color/verbos"
-        app:layout_constraintDimensionRatio="3:4"
-        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/home_yellowish_color"
+
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,33 +27,37 @@
             >
 
             <ImageView
-                android:id="@+id/fragment_card_image"
+                android:id="@+id/fragment_category_card_image"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@drawable/ic_launcher_background"
 
-
+                app:layout_constraintHeight_min="100dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/fragment_category_card_category_name"
+            />
 
             <TextView
-                android:id="@+id/fragment_card_card_name"
+                android:id="@+id/fragment_category_card_category_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Texto do card"
+                android:text="Categoria"
                 android:fontFamily="@font/gotham_bold"
                 android:textSize="16sp"
                 android:textAlignment="center"
 
-
+                app:layout_constraintHeight_min="35sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_card_image" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_category_card_image"
+            />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 

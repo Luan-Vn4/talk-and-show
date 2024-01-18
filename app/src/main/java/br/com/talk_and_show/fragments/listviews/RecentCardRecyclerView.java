@@ -1,4 +1,4 @@
-package br.com.talk_and_show.fragments.cards;
+package br.com.talk_and_show.fragments.listviews;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import br.com.talk_and_show.R;
 import br.com.talk_and_show.adapters.RecentCardsAdapter;
 import br.com.talk_and_show.databinding.FragmentRecentCardRecyclerViewBinding;
+import br.com.talk_and_show.fragments.cards.CustomDividerItemDecoration;
 import br.com.talk_and_show.models.CommCard;
 import br.com.talk_and_show.models.CommCardCategories;
 

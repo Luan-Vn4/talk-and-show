@@ -1,4 +1,4 @@
-package br.com.talk_and_show.fragments.homeToolbar;
+package br.com.talk_and_show.fragments.hometoolbar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,12 +15,7 @@ public class IconProfilePictureFragment extends Fragment {
     FragmentIconProfilePictureBinding binding;
 
     public static IconProfilePictureFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        IconProfilePictureFragment fragment = new IconProfilePictureFragment();
-        fragment.setArguments(args);
-        return fragment;
+        return new IconProfilePictureFragment();
     }
 
     @Nullable
@@ -30,4 +25,5 @@ public class IconProfilePictureFragment extends Fragment {
         this.binding = FragmentIconProfilePictureBinding.inflate(getLayoutInflater(), container, false);
         return this.binding.getRoot();
     }
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main_root"
@@ -8,60 +8,67 @@
     android:background="?attr/backgroundColor"
     tools:context=".activities.MainActivity"
     android:fitsSystemWindows="true"
+    beh
     >
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/activity_main_fragment_toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.070"
+        android:layout_height="match_parent"
+        >
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/activity_main_label_recent"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/activity_main_fragment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.070"
 
-        tools:layout="@layout/fragment_home_toolbar"
-    />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/activity_main_label_recent"
 
-    <TextView
-        android:id="@+id/activity_main_label_recent"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+            tools:layout="@layout/fragment_home_toolbar"
+        />
 
-        android:fontFamily="@font/gotham_bold"
-        android:gravity="center"
-        android:text="Recentes"
-        android:textSize="25sp"
-        android:textColor="@color/home_yellowish_color"
+        <TextView
+            android:id="@+id/activity_main_label_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
 
-        app:layout_constraintHeight_percent="0.05"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_main_fragment_toolbar"
-        app:layout_constraintBottom_toTopOf="@id/activity_main_fragment_recycler_view_recent_cards" />
+            android:fontFamily="@font/gotham_bold"
+            android:gravity="center"
+            android:text="Recentes"
+            android:textSize="25sp"
+            android:textColor="@color/home_yellowish_color"
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/activity_main_fragment_recycler_view_recent_cards"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.05"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_main_fragment_toolbar"
+            app:layout_constraintBottom_toTopOf="@id/activity_main_fragment_recycler_view_recent_cards" />
 
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintBottom_toTopOf="@id/activity_main_fragment_recycler_view_categories"
-        app:layout_constraintTop_toBottomOf="@id/activity_main_label_recent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout="@layout/fragment_recent_card_recycler_view" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/activity_main_fragment_recycler_view_recent_cards"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/activity_main_fragment_recycler_view_categories"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintBottom_toTopOf="@id/activity_main_fragment_recycler_view_categories"
+            app:layout_constraintTop_toBottomOf="@id/activity_main_label_recent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout="@layout/fragment_recent_card_recycler_view" />
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_main_fragment_recycler_view_recent_cards"
-        tools:layout="@layout/fragment_cards_recycler_view" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/activity_main_fragment_recycler_view_categories"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_main_fragment_recycler_view_recent_cards"
+            tools:layout="@layout/fragment_recycler_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

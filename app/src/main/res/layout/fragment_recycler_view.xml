@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_cards_recycler_view_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.cards.CardsRecyclerViewFragment"
+    tools:context=".fragments.listviews.RecyclerViewFragment"
     android:clipToPadding="false"
     android:clipChildren="false"
     >
@@ -14,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
+        android:paddingHorizontal="20dp"
         android:paddingVertical="20dp"
         android:clipToPadding="false"
         android:clipChildren="false"
@@ -27,4 +29,4 @@
         tools:spanCount="2"
     />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
