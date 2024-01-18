@@ -1,4 +1,4 @@
-package com.example.myapplication.adapters;
+package br.com.talk_and_show.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +11,12 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.R;
-import com.example.myapplication.databinding.FragmentCardBinding;
-import com.example.myapplication.models.CommCard;
+import br.com.talk_and_show.models.CommCard;
 
 import java.util.ArrayList;
+
+import br.com.talk_and_show.R;
+import br.com.talk_and_show.databinding.FragmentCardBinding;
 
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHolder> {

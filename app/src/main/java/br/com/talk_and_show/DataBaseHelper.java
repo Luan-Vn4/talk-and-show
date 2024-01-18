@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package br.com.talk_and_show;
 
 import android.content.ContentValues;
 import android.content.Context;

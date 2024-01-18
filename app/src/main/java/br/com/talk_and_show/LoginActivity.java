@@ -1,15 +1,14 @@
-package com.example.myapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
+package br.com.talk_and_show;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.myapplication.activities.MainActivity;
-import com.example.myapplication.databinding.ActivityLoginBinding;
-import com.example.myapplication.SignupActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+import br.com.talk_and_show.activities.MainActivity;
+import br.com.talk_and_show.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 

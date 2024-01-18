@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments.cards;
+package br.com.talk_and_show.fragments.cards;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,15 +13,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.R;
-import com.example.myapplication.adapters.RecentCardsAdapter;
-import com.example.myapplication.databinding.FragmentRecentCardRecyclerViewBinding;
-import com.example.myapplication.models.CommCardCategories;
-import com.example.myapplication.models.CommCard;
-
 import java.util.ArrayList;
 
-
+import br.com.talk_and_show.R;
+import br.com.talk_and_show.adapters.RecentCardsAdapter;
+import br.com.talk_and_show.databinding.FragmentRecentCardRecyclerViewBinding;
+import br.com.talk_and_show.models.CommCard;
+import br.com.talk_and_show.models.CommCardCategories;
 
 public class RecentCardRecyclerView extends Fragment {
     FragmentRecentCardRecyclerViewBinding binding;
@@ -57,12 +55,12 @@ public class RecentCardRecyclerView extends Fragment {
 
     private static <CommCard> ArrayList<CommCard> getCardsList() {
         return new ArrayList<CommCard>() {{
-            add((CommCard) new com.example.myapplication.models.CommCard("Sujeitos", CommCardCategories.SUJEITO, 0));
-            add((CommCard) new com.example.myapplication.models.CommCard("Verbos", CommCardCategories.VERBO, 0));
-            add((CommCard) new com.example.myapplication.models.CommCard("Objetos", CommCardCategories.OBJETO, 0));
-            add((CommCard) new com.example.myapplication.models.CommCard("Adjetivos", CommCardCategories.ADJETIVO, 0));
-            add((CommCard) new com.example.myapplication.models.CommCard("Adverbios", CommCardCategories.ADVERBIO, 0));
-            add((CommCard) new com.example.myapplication.models.CommCard("Próprios", CommCardCategories.PROPRIO, 0));
+            add((CommCard) new br.com.talk_and_show.models.CommCard("Sujeitos", CommCardCategories.SUJEITO, 0));
+            add((CommCard) new br.com.talk_and_show.models.CommCard("Verbos", CommCardCategories.VERBO, 0));
+            add((CommCard) new br.com.talk_and_show.models.CommCard("Objetos", CommCardCategories.OBJETO, 0));
+            add((CommCard) new br.com.talk_and_show.models.CommCard("Adjetivos", CommCardCategories.ADJETIVO, 0));
+            add((CommCard) new br.com.talk_and_show.models.CommCard("Adverbios", CommCardCategories.ADVERBIO, 0));
+            add((CommCard) new br.com.talk_and_show.models.CommCard("Próprios", CommCardCategories.PROPRIO, 0));
         }};
     }
 

@@ -1,15 +1,19 @@
-package com.example.myapplication.activities;
+package br.com.talk_and_show.activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.databinding.ActivityMainBinding;
-import com.example.myapplication.fragments.cards.CardsRecyclerViewFragment;
-import com.example.myapplication.fragments.cards.RecentCardRecyclerView;
 
 
-import com.example.myapplication.fragments.homeToolbar.HomeToolbarFragment;
+
+
+
+
+import br.com.talk_and_show.databinding.ActivityMainBinding;
+import br.com.talk_and_show.fragments.cards.CardsRecyclerViewFragment;
+import br.com.talk_and_show.fragments.cards.RecentCardRecyclerView;
+import br.com.talk_and_show.fragments.homeToolbar.HomeToolbarFragment;
 
 
 public class MainActivity extends AppCompatActivity {

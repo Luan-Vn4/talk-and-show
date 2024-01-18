@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments.cards;
+package br.com.talk_and_show.fragments.cards;
 
 import android.content.Context;
 import android.graphics.Canvas;

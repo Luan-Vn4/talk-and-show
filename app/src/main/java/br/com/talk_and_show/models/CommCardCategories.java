@@ -1,7 +1,7 @@
-package com.example.myapplication.models;
+package br.com.talk_and_show.models;
 
 
-import com.example.myapplication.R;
+import br.com.talk_and_show.R;
 
 public enum CommCardCategories {
     SUJEITO(R.color.sujeitos),

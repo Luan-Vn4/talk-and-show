@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments.cards;
+package br.com.talk_and_show.fragments.cards;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -15,14 +15,17 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.R;
-import com.example.myapplication.adapters.CardsAdapter;
-import com.example.myapplication.databinding.FragmentCardsRecyclerViewBinding;
-import com.example.myapplication.models.CommCard;
-import com.example.myapplication.models.CommCardCategories;
+
+
 import com.google.android.material.divider.MaterialDividerItemDecoration;
 
 import java.util.ArrayList;
+
+import br.com.talk_and_show.R;
+import br.com.talk_and_show.adapters.CardsAdapter;
+import br.com.talk_and_show.databinding.FragmentCardsRecyclerViewBinding;
+import br.com.talk_and_show.models.CommCard;
+import br.com.talk_and_show.models.CommCardCategories;
 
 
 public class CardsRecyclerViewFragment extends Fragment {

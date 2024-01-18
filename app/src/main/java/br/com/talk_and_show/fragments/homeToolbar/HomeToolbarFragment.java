@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments.homeToolbar;
+package br.com.talk_and_show.fragments.homeToolbar;
 
 import android.os.Bundle;
 
@@ -8,7 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myapplication.databinding.FragmentHomeToolbarBinding;
+import br.com.talk_and_show.databinding.FragmentHomeToolbarBinding;
+
 
 /**
  * A simple {@link Fragment} subclass.

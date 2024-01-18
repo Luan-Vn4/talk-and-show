@@ -1,4 +1,4 @@
-package com.example.myapplication.models;
+package br.com.talk_and_show.models;
 
 public class CommCard {
 

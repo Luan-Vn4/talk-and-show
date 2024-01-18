@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments.cards;
+package br.com.talk_and_show.fragments.cards;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myapplication.databinding.FragmentCardBinding;
+import br.com.talk_and_show.databinding.FragmentCardBinding;
 
 
 public class CardFragment extends Fragment {

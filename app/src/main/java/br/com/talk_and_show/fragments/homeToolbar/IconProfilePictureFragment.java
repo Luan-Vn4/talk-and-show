@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments.homeToolbar;
+package br.com.talk_and_show.fragments.homeToolbar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.databinding.FragmentIconProfilePictureBinding;
+import br.com.talk_and_show.databinding.FragmentIconProfilePictureBinding;
+
 
 public class IconProfilePictureFragment extends Fragment {
     FragmentIconProfilePictureBinding binding;
