@@ -3,7 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="almost_black">#2E2E2E</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orange">#FCA500</color>
     <color name="light_blue">#0BB0F0</color>
+    <color name="dark_blue">#197091</color>
     <color name="home_toolbar_color">#197091</color>
     <color name="home_yellowish_color">#FCA500</color>
     <color name="light_background_color">#FFEFD6</color>
@@ -13,6 +15,6 @@
     <color name="objetos">#3893FF</color>
     <color name="adjetivos">#DC50FF</color>
     <color name="adverbios">#FF849A</color>
-    <color name="proprios">#FFFFFF</color>
+    <color name="proprios">#FF9636</color>
     <color name="frases">#00FFE0</color>
 </resources>

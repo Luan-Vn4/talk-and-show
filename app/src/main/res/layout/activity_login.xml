@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:id="@+id/layer_codia_sing_in_sign_up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layer_codia_sing_in_sign_up"
+    android:gravity="left|top"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/container_sing_in_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/container_sing_in_sign_up">
+
+
+        <TextView
+            android:id="@+id/text_talk_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="244.5dp"
+            android:layout_marginBottom="-0.5dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Talk&amp;Show"
+            android:textColor="#FF0BB0F0"
+            android:textSize="40dp" />
+
+        <ImageView
+            android:id="@+id/image_rectangle2"
+            android:layout_width="match_parent"
+            android:layout_height="363dp"
+            android:layout_gravity="top|left"
+            android:layout_marginTop="370dp"
+            android:background="@drawable/image_rectangle2"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/loginRedirectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="700dp"
+            android:layout_marginBottom="-1dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="cadastre-se"
+            android:textColor="#FF001C2A"
+            android:textSize="12dp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/text_bem_vindo_talk_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginBottom="-1dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Bem-vindo ao Talk&amp;Show"
+            android:textColor="#FFFFFFFF"
+            android:textSize="30dp" />
+
+        <EditText
+            android:id="@+id/login_email"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="480dp"
+            android:background="@drawable/image_rectangle"
+            android:hint="email"
+            android:padding="8dp"
+            android:scaleType="centerCrop"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="552dp"
+            android:layout_gravity="top|left"
+            android:background="@drawable/image_rectangle3"
+            android:hint="senha"
+            android:textColorHint="@color/white"
+            android:scaleType="centerInside"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:inputType="textPassword"/>
+
+
+
+        <FrameLayout
+            android:id="@+id/container_group1"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="640dp"
+            android:layout_gravity="top|left"
+            android:background="@drawable/container_group1">
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/image_rectangle1"
+                android:scaleType="centerCrop"
+                android:text="entrar"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/conta"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="700dp"
+            android:layout_marginBottom="-1dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="ainda não possui uma conta? "
+            android:textColor="#FFFFFFFF"
+            android:textSize="12dp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="599dp"
+            android:layout_marginBottom="-1dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="esqueci minha senha"
+            android:textColor="#FF0D375F"
+            android:textSize="12dp"
+            tools:ignore="TextSizeCheck" />
+
+        <ImageView
+            android:id="@+id/image_logofofa"
+            android:layout_width="301dp"
+            android:layout_height="242dp"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_logofofa" />
+
+
+    </FrameLayout>
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
