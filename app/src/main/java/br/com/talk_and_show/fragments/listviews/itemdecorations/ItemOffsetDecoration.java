@@ -118,8 +118,8 @@ public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
             outRect.top = this.getItemOffsetTop()/2;
         }
 
-        boolean isNotLastRow = this.currentItemAdapterPosition <
-                ((GridLayoutManager) parent.getLayoutManager()).getItemCount() - this.spanCount;
+        int incompleteLastRowItemCount = state.getItemCount() % this.spanCount;
+        boolean isNotLastRow = this.currentItemAdapterPosition < (state.getItemCount() - incompleteLastRowItemCount);
         if (isNotLastRow) {
             outRect.bottom = this.getItemOffsetBottom()/2;
         }
@@ -127,7 +127,7 @@ public class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
 
     private void getHorizontalItemOffset(@NonNull Rect outRect, @NonNull View view,
                                          @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-        this.spanCount = parent.getChildCount();
+        this.spanCount = state.getItemCount();
         this.currentItemSpanIndex = parent.getChildAdapterPosition(view);
         this.currentItemAdapterPosition = currentItemSpanIndex;
 

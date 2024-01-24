@@ -1,5 +1,9 @@
 package br.com.talk_and_show.models;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import br.com.talk_and_show.R;
 
 public enum CommCardCategories {
@@ -31,5 +35,9 @@ public enum CommCardCategories {
 
     public int getImage() {
         return image;
+    }
+
+    public static List<CommCardCategories> getValuesList() {
+        return Arrays.stream(CommCardCategories.values()).collect(Collectors.toList());
     }
 }

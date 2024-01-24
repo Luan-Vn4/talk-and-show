@@ -8,67 +8,79 @@
     android:background="?attr/backgroundColor"
     tools:context=".activities.MainActivity"
     android:fitsSystemWindows="true"
-    beh
     >
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_dodgeInsetEdges="bottom"
+        android:elevation="0dp"
         >
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/activity_main_fragment_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.070"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/activity_main_label_recent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
 
             tools:layout="@layout/fragment_home_toolbar"
-        />
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            />
 
-        <TextView
-            android:id="@+id/activity_main_label_recent"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+    </com.google.android.material.appbar.AppBarLayout>
 
-            android:fontFamily="@font/gotham_bold"
-            android:gravity="center"
-            android:text="Recentes"
-            android:textSize="25sp"
-            android:textColor="@color/home_yellowish_color"
-
-            app:layout_constraintHeight_percent="0.05"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_main_fragment_toolbar"
-            app:layout_constraintBottom_toTopOf="@id/activity_main_fragment_recycler_view_recent_cards" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/activity_main_fragment_recycler_view_recent_cards"
+    <androidx.core.widget.NestedScrollView
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/activity_main_label_recent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-            app:layout_constraintHeight_percent="0.25"
-            app:layout_constraintBottom_toTopOf="@id/activity_main_fragment_recycler_view_categories"
-            app:layout_constraintTop_toBottomOf="@id/activity_main_label_recent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout="@layout/fragment_recent_card_recycler_view" />
+                    android:fontFamily="@font/gotham_bold"
+                    android:gravity="center"
+                    android:text="Recentes"
+                    android:textSize="25sp"
+                    android:textColor="@color/home_yellowish_color"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/activity_main_recycler_view_recent_cards"
+                    app:layout_constraintTop_toTopOf="parent"
+                 />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/activity_main_fragment_recycler_view_categories"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/activity_main_recycler_view_recent_cards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_main_fragment_recycler_view_recent_cards"
-            tools:layout="@layout/fragment_recycler_view" />
+                    app:layout_constraintTop_toBottomOf="@id/activity_main_label_recent"
+                    app:layout_constraintBottom_toTopOf="@id/activity_main_recycler_view_categories"
+                    tools:layout="@layout/fragment_recent_card_recycler_view"
+                />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/activity_main_recycler_view_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:layout_constraintTop_toBottomOf="@id/activity_main_recycler_view_recent_cards"
+                    tools:layout="@layout/fragment_recycler_view"
+                />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

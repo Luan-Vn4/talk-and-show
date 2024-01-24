@@ -8,8 +8,10 @@ import androidx.annotation.NonNull;
 public class CommCard implements Parcelable {
     // Atributos
     private String name;
+
     private CommCardCategories category;
     private int image;
+
     public static final Creator<CommCard> CREATOR = new Creator<CommCard>() {
         @Override
         public CommCard createFromParcel(Parcel in) {
@@ -23,7 +25,6 @@ public class CommCard implements Parcelable {
     };
 
     // Métodos de acesso
-
     public CommCard(String name, CommCardCategories category, int image) {
         this.setName(name);
         this.setCategory(category);
@@ -59,8 +60,6 @@ public class CommCard implements Parcelable {
     public void setImage(int image) {
         this.image = image;
     }
-
-
 
     // Parcelables methods
     @Override

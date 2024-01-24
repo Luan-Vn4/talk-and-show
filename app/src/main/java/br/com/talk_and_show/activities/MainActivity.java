@@ -8,13 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
-import br.com.talk_and_show.R;
 import br.com.talk_and_show.adapters.CardsAdapter;
-import br.com.talk_and_show.adapters.RecentCardsAdapter;
+import br.com.talk_and_show.adapters.CategoryCardAdapter;
 import br.com.talk_and_show.databinding.ActivityMainBinding;
-import br.com.talk_and_show.fragments.listviews.RecyclerViewFragment;
 import br.com.talk_and_show.fragments.hometoolbar.HomeToolbarFragment;
-import br.com.talk_and_show.fragments.listviews.RecentCardRecyclerView;
+import br.com.talk_and_show.fragments.listviews.RecyclerViewFragment;
 import br.com.talk_and_show.fragments.listviews.itemdecorations.ItemOffsetDecoration;
 import br.com.talk_and_show.models.CommCard;
 import br.com.talk_and_show.models.CommCardCategories;
@@ -34,17 +32,17 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(this.binding.activityMainFragmentToolbar.getId(), HomeToolbarFragment.newInstance())
-                .add(this.binding.activityMainFragmentRecyclerViewCategories.getId(), createCategoryRecyclerViewFragment())
-                .add(this.binding.activityMainFragmentRecyclerViewRecentCards.getId(), createRecentRecyclerViewFragment())
+                .add(this.binding.activityMainRecyclerViewCategories.getId(), createCategoryRecyclerViewFragment())
+                .add(this.binding.activityMainRecyclerViewRecentCards.getId(), createRecentRecyclerViewFragment())
                 .commit();
     }
 
     private RecyclerViewFragment createCategoryRecyclerViewFragment() {
         GridLayoutManager layoutManager = new GridLayoutManager(this.binding.getRoot().getContext(), 2);
-        CardsAdapter cardsAdapter = new CardsAdapter(getCardsList());
+        CategoryCardAdapter categoryCardAdapter = new CategoryCardAdapter(CommCardCategories.getValuesList());
 
         RecyclerViewFragment cardsRVFragment = RecyclerViewFragment
-                                                        .newInstance(layoutManager, cardsAdapter);
+                                                        .newInstance(layoutManager, categoryCardAdapter);
         cardsRVFragment.setPadding(60, 60, 60, 60);
 
         ItemOffsetDecoration itemOffsetDecoration = new ItemOffsetDecoration(
@@ -58,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerViewFragment createRecentRecyclerViewFragment() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 this.binding.getRoot().getContext(), LinearLayoutManager.HORIZONTAL, false);
-        RecentCardsAdapter recentCardsAdapter = new RecentCardsAdapter(getCardsList());
+        CardsAdapter cardsAdapter = new CardsAdapter(getCardsList());
 
-        RecyclerViewFragment recentCardRV = RecyclerViewFragment.newInstance(layoutManager, recentCardsAdapter);
+        RecyclerViewFragment recentCardRV = RecyclerViewFragment.newInstance(layoutManager, cardsAdapter);
         recentCardRV.setPadding(60, 30, 60, 30);
 
         ItemOffsetDecoration itemOffsetDecoration = new ItemOffsetDecoration(
@@ -69,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
         recentCardRV.setItemDecoration(itemOffsetDecoration);
 
         return recentCardRV;
-
-        R.layout.fragment
     }
 
     private static ArrayList<CommCard> getCardsList() {
