@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/toolbar_shape"
+        android:background="@drawable/shape_toolbar"
 
         app:contentInsetStart="12dp"
         app:contentInsetRight="12dp"

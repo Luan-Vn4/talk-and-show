@@ -1,4 +1,4 @@
-package br.com.talk_and_show;
+package br.com.talk_and_show.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import br.com.talk_and_show.activities.MainActivity;
+import br.com.talk_and_show.database.DataBaseHelper;
 import br.com.talk_and_show.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {

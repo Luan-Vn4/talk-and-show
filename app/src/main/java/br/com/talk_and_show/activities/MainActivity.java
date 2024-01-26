@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import br.com.talk_and_show.fragments.hometoolbar.HomeToolbarFragment;
 import br.com.talk_and_show.adapters.CardsAdapter;
 import br.com.talk_and_show.adapters.CategoryCardAdapter;
 import br.com.talk_and_show.databinding.ActivityMainBinding;
-import br.com.talk_and_show.fragments.hometoolbar.HomeToolbarFragment;
 import br.com.talk_and_show.fragments.listviews.RecyclerViewFragment;
 import br.com.talk_and_show.fragments.listviews.itemdecorations.ItemOffsetDecoration;
 import br.com.talk_and_show.models.CommCard;

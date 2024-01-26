@@ -11,11 +11,17 @@ import androidx.fragment.app.Fragment;
 
 import br.com.talk_and_show.databinding.FragmentIconProfilePictureBinding;
 
+
 public class IconProfilePictureFragment extends Fragment {
     FragmentIconProfilePictureBinding binding;
 
     public static IconProfilePictureFragment newInstance() {
-        return new IconProfilePictureFragment();
+
+        Bundle args = new Bundle();
+
+        IconProfilePictureFragment fragment = new IconProfilePictureFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
@@ -25,5 +31,4 @@ public class IconProfilePictureFragment extends Fragment {
         this.binding = FragmentIconProfilePictureBinding.inflate(getLayoutInflater(), container, false);
         return this.binding.getRoot();
     }
-
 }

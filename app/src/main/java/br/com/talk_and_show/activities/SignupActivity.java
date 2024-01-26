@@ -1,4 +1,4 @@
-package br.com.talk_and_show;
+package br.com.talk_and_show.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import br.com.talk_and_show.database.DataBaseHelper;
 import br.com.talk_and_show.databinding.ActivitySignupBinding;
 
 
@@ -39,7 +40,7 @@ public class SignupActivity extends AppCompatActivity {
                             Boolean insert = databaseHelper.insertData(email, password);
                             if(insert == true){
                                 Toast.makeText(SignupActivity.this, "Signup Successfully!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(SignupActivity.this, "Signup Failed!", Toast.LENGTH_SHORT).show();
