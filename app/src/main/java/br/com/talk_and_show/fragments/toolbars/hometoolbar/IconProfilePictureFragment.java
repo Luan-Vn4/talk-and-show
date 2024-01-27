@@ -1,4 +1,4 @@
-package br.com.talk_and_show.fragments.hometoolbar;
+package br.com.talk_and_show.fragments.toolbars.hometoolbar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

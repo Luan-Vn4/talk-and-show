@@ -1,4 +1,4 @@
-package br.com.talk_and_show.fragments.homeToolbar;
+package br.com.talk_and_show.fragments.toolbars.hometoolbar;
 
 import android.os.Bundle;
 
