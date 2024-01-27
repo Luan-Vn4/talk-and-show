@@ -1,4 +1,4 @@
-package br.com.talk_and_show;
+package br.com.talk_and_show.database;
 
 import android.content.ContentValues;
 import android.content.Context;

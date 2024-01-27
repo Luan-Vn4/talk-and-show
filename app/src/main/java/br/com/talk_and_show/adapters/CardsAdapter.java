@@ -1,5 +1,8 @@
 package br.com.talk_and_show.adapters;
 
+import android.content.res.Resources;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,46 +11,34 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import br.com.talk_and_show.models.CommCard;
-
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.talk_and_show.R;
 import br.com.talk_and_show.databinding.FragmentCardBinding;
-
+import br.com.talk_and_show.models.CommCard;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHolder> {
 
-    private ArrayList<CommCard> cardsList;
+    static class CardsViewHolder extends RecyclerView.ViewHolder {
+        private final CardView cardBackround;
+        private final TextView cardName;
+        private final ImageView cardImage;
 
-    public CardsAdapter(ArrayList<CommCard> cardsList) {
-        this.cardsList = cardsList;
-    }
-
-    /**
-     * Wrapper class to encapsulate the binding of {@link CommCard} objects, that is, it will receive
-     * a {@link View} itemView that is the representation of the card by the onCreateViewHolder method
-     * of the adapter class on runtime. Then, it will bind the data received from the card from
-     * the onBindViewHolder method of the adapter class
-     */
-    public class CardsViewHolder extends RecyclerView.ViewHolder {
-        private CardView cardBackround;
-        private TextView cardName;
-        private ImageView cardImage;
-
-        public CardsViewHolder(@NonNull View itemView) {
+        CardsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             // Extracting view cards fields to fill
             this.cardBackround = itemView.findViewById(R.id.cardBackground);
-            this.cardName = itemView.findViewById(R.id.cardName);
-            this.cardImage = itemView.findViewById(R.id.imageView);
+            this.cardName = itemView.findViewById(R.id.fragment_card_card_name);
+            this.cardImage = itemView.findViewById(R.id.fragment_card_image);
         }
 
-        public void bind(CommCard card) {
+        void bind(CommCard card) {
             this.cardBackround.setBackgroundTintList(ContextCompat.getColorStateList(
                     this.itemView.getContext(), card.getCategory().getColor()));
             this.cardImage.setImageResource(card.getImage());
@@ -55,15 +46,22 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
         }
     }
 
+    // Atributos
+    private List<CommCard> cardsList;
+
+    // Métodos de acesso
+    public CardsAdapter(List<CommCard> cardsList) {
+        this.cardsList = cardsList;
+    }
+
+    // Métodos
     @NonNull
     @Override
     public CardsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = FragmentCardBinding.inflate(
                 LayoutInflater.from(parent.getContext()), parent, false).getRoot();
 
-        view.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 500));
 
         return new CardsViewHolder(view);
     }
@@ -77,5 +75,15 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
     @Override
     public int getItemCount() {
         return this.cardsList.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 }

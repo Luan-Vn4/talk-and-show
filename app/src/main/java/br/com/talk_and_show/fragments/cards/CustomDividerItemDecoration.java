@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import br.com.talk_and_show.R;
 
 /**
  * Consiste em um DividerItemDecoration o qual permite que você escolha se haverá um divider

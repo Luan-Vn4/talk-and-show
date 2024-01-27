@@ -11,14 +11,11 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import br.com.talk_and_show.models.CommCard;
-
 import java.util.ArrayList;
 
 import br.com.talk_and_show.R;
 import br.com.talk_and_show.databinding.FragmentCardBinding;
-
+import br.com.talk_and_show.models.CommCard;
 
 public class RecentCardsAdapter extends RecyclerView.Adapter<RecentCardsAdapter.RecentCardsViewHolder> {
 
@@ -28,19 +25,19 @@ public class RecentCardsAdapter extends RecyclerView.Adapter<RecentCardsAdapter.
         this.cardsList = cardsList;
     }
 
-    public class RecentCardsViewHolder extends RecyclerView.ViewHolder {
-        private TextView cardName;
-        private ImageView cardImage;
-        private CardView cardBackground;
+    static class RecentCardsViewHolder extends RecyclerView.ViewHolder {
+        private final TextView cardName;
+        private final ImageView cardImage;
+        private final CardView cardBackground;
 
-        public RecentCardsViewHolder(@NonNull View itemView) {
+        RecentCardsViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.cardName = itemView.findViewById(R.id.cardName);
-            this.cardImage = itemView.findViewById(R.id.imageView);
+            this.cardName = itemView.findViewById(R.id.fragment_card_card_name);
+            this.cardImage = itemView.findViewById(R.id.fragment_card_image);
             this.cardBackground = itemView.findViewById(R.id.cardBackground);
         }
 
-        public void bind(CommCard card) {
+        void bind(CommCard card) {
             this.cardName.setText(card.getName());
             this.cardBackground.setBackgroundTintList(ContextCompat.getColorStateList(
                                 this.itemView.getContext(), card.getCategory().getColor()));

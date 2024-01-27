@@ -11,7 +11,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
-            android:background="@drawable/image_view_circular_profile_view"
+            android:background="@drawable/shape_image_view_circular_profile_view"
             android:src="@drawable/icon_profile"
         />
 
