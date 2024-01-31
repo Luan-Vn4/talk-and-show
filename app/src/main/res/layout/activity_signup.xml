@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.SignupActivity">
+    tools:context=".activities.SignupActivity"
+    android:background="@color/light_background_color">
 
     <ImageView
         android:id="@+id/activity_signup_image_view_logo_fofa"

@@ -30,6 +30,7 @@ public class RecentCardsAdapter extends RecyclerView.Adapter<RecentCardsAdapter.
         private final ImageView cardImage;
         private final CardView cardBackground;
 
+
         RecentCardsViewHolder(@NonNull View itemView) {
             super(itemView);
             this.cardName = itemView.findViewById(R.id.fragment_card_card_name);

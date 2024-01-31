@@ -19,8 +19,17 @@ import br.com.talk_and_show.models.CommCard;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHolder> {
 
+    private ArrayList<CommCard> cardList;
+    private OnItemClickListener listener;
+
+
+    public interface OnItemClickListener {
+        void onItemClick(CommCard position);
+
+    }
+
     static class CardsViewHolder extends RecyclerView.ViewHolder {
-        private final CardView cardBackround;
+        private final CardView cardBackground;
         private final TextView cardName;
         private final ImageView cardImage;
 
@@ -28,25 +37,39 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
             super(itemView);
 
             // Extracting view cards fields to fill
-            this.cardBackround = itemView.findViewById(R.id.cardBackground);
+            this.cardBackground = itemView.findViewById(R.id.cardBackground);
             this.cardName = itemView.findViewById(R.id.fragment_card_card_name);
             this.cardImage = itemView.findViewById(R.id.fragment_card_image);
         }
 
-        void bind(CommCard card) {
-            this.cardBackround.setBackgroundTintList(ContextCompat.getColorStateList(
+        void bind(final CommCard card, final OnItemClickListener listener) {
+            this.cardBackground.setBackgroundTintList(ContextCompat.getColorStateList(
                     this.itemView.getContext(), card.getCategory().getColor()));
             this.cardImage.setImageResource(card.getImage());
             this.cardName.setText(card.getName());
+
+
+            // Adiciona um ouvinte de clique para o item da lista
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        listener.onItemClick(card);
+                    }
+                }
+            });
         }
+
     }
 
     // Atributos
     private List<CommCard> cardsList;
+    private OnItemClickListener itemClickListener;
 
     // Métodos de acesso
     public CardsAdapter(List<CommCard> cardsList) {
         this.cardsList = cardsList;
+        this.itemClickListener = itemClickListener;
     }
 
     // Métodos
@@ -64,7 +87,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
     @Override
     public void onBindViewHolder(@NonNull CardsViewHolder holder, int position) {
         CommCard card = this.cardsList.get(position);
-        holder.bind(card);
+        holder.bind(card, itemClickListener);
     }
 
     @Override
@@ -80,5 +103,12 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public CommCard getCard(int position) {
+        if (position >= 0 && position < cardsList.size()) {
+            return cardsList.get(position);
+        }
+        return null;
     }
 }
