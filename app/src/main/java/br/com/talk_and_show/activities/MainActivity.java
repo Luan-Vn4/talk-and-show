@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import br.com.talk_and_show.databinding.ActivityMainBinding;
+import br.com.talk_and_show.fragments.CardsDisplayFragment;
 import br.com.talk_and_show.fragments.HomePageFragment;
 import br.com.talk_and_show.fragments.toolbars.hometoolbar.HomeToolbarFragment;
 import br.com.talk_and_show.models.CommCardCategories;
@@ -34,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    private void onSelectedCategoryObserver (CommCardCategories commCard) {
+        this.getSupportFragmentManager().beginTransaction()
+            .setReorderingAllowed(true)
+            .replace(this.binding.activityMainFragmentHomepage.getId(), CardsDisplayFragment.newInstance(commCard.getName()))
+            .addToBackStack("navigateToCategory")
+            .commit();
     }
 
     private void configureFragments() {

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
 import br.com.talk_and_show.databinding.FragmentRecyclerViewBinding;
 
 public class RecyclerViewFragment extends Fragment {
@@ -26,6 +27,10 @@ public class RecyclerViewFragment extends Fragment {
     // Métodos de acesso
     public RecyclerView getRecyclerView() {
         return recyclerView;
+    }
+
+    private void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
     }
 
     public int getPaddingTop() {
@@ -81,16 +86,26 @@ public class RecyclerViewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         this.binding = FragmentRecyclerViewBinding.inflate(inflater, container, false);
-
-        configureRecyclerView(this.binding.cardsRecyclerView);
-
         return this.binding.getRoot();
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.configureRecyclerView(this.binding.cardsRecyclerView);
+    }
+
     private void configureRecyclerView(RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(this.layoutManager);
+        this.setRecyclerView(recyclerView);
         recyclerView.setAdapter(this.adapter);
+        if (!this.layoutManager.isAttachedToWindow()) {recyclerView.setLayoutManager(this.layoutManager);}
         if (this.getItemDecoration() != null) {recyclerView.addItemDecoration(this.itemDecoration);}
         recyclerView.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        this.getRecyclerView().setLayoutManager(null);
     }
 }
