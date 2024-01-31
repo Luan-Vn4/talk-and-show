@@ -61,7 +61,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
         View view = FragmentCardBinding.inflate(
                 LayoutInflater.from(parent.getContext()), parent, false).getRoot();
 
-        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 500));
+        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 500));
 
         return new CardsViewHolder(view);
     }
