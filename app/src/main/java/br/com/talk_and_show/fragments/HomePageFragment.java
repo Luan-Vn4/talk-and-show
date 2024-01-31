@@ -1,13 +1,16 @@
 package br.com.talk_and_show.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -20,12 +23,18 @@ import br.com.talk_and_show.fragments.listviews.RecyclerViewFragment;
 import br.com.talk_and_show.fragments.listviews.itemdecorations.ItemOffsetDecoration;
 import br.com.talk_and_show.models.CommCard;
 import br.com.talk_and_show.models.CommCardCategories;
+import br.com.talk_and_show.viewmodels.MainActivityViewModel;
+import br.com.talk_and_show.viewmodels.SelectableItemViewModel;
 
 public class HomePageFragment extends Fragment {
-    FragmentHomepageBinding binding;
+    private SelectableItemViewModel<CommCardCategories> selectableItemViewModel;
+    private FragmentHomepageBinding binding;
 
-    public static HomePageFragment newInstance() {
-        return new HomePageFragment();
+    public static HomePageFragment newInstance(SelectableItemViewModel<CommCardCategories> cardsDisplayViewModel) {
+        HomePageFragment homePageFragment = new HomePageFragment();
+        homePageFragment.selectableItemViewModel = cardsDisplayViewModel;
+
+        return homePageFragment;
     }
 
     @Nullable
@@ -33,19 +42,23 @@ public class HomePageFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         this.binding = FragmentHomepageBinding.inflate(inflater, container, false);
-
-        this.getChildFragmentManager()
-                .beginTransaction()
-                .add(this.binding.fragmentHomepageRecyclerViewCategories.getId(), createCategoryRecyclerViewFragment())
-                .add(this.binding.fragmentHomepageRecyclerViewRecentCards.getId(), createRecentRecyclerViewFragment())
-                .commit();
-
         return this.binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.getChildFragmentManager()
+            .beginTransaction()
+            .setReorderingAllowed(true)
+            .replace(this.binding.fragmentHomepageRecyclerViewCategories.getId(), createCategoryRecyclerViewFragment())
+            .replace(this.binding.fragmentHomepageRecyclerViewRecentCards.getId(), createRecentRecyclerViewFragment())
+            .commit();
     }
 
     private RecyclerViewFragment createCategoryRecyclerViewFragment() {
         GridLayoutManager layoutManager = new GridLayoutManager(this.binding.getRoot().getContext(), 2);
-        CategoryCardAdapter categoryCardAdapter = new CategoryCardAdapter(CommCardCategories.getValuesList());
+        CategoryCardAdapter categoryCardAdapter = new CategoryCardAdapter(CommCardCategories.getValuesList(), selectableItemViewModel);
 
         RecyclerViewFragment cardsRVFragment = RecyclerViewFragment
                 .newInstance(layoutManager, categoryCardAdapter);
