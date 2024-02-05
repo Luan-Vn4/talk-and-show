@@ -1,32 +1,15 @@
 package br.com.talk_and_show.models;
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import br.com.talk_and_show.activities.CardView;
-import br.com.talk_and_show.activities.MainActivity;
 import br.com.talk_and_show.databinding.ActivityMainBinding;
 
 public class CommCard implements Parcelable {
     // Atributos
-
-    private boolean isSelected;
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
     private String name;
-
-    ActivityMainBinding binding;
 
     private CommCardCategories category;
     private int image;

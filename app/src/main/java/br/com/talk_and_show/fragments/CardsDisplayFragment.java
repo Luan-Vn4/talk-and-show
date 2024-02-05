@@ -16,11 +16,15 @@ import br.com.talk_and_show.adapters.CardsAdapter;
 import br.com.talk_and_show.databinding.FragmentCardsDisplayBinding;
 import br.com.talk_and_show.fragments.listviews.RecyclerViewFragment;
 import br.com.talk_and_show.fragments.listviews.itemdecorations.ItemOffsetDecoration;
+import br.com.talk_and_show.models.CommCard;
+import br.com.talk_and_show.models.CommCardCategories;
 import br.com.talk_and_show.viewmodels.CardsDisplayViewModel;
+import br.com.talk_and_show.viewmodels.SelectableItemViewModel;
 
 public class CardsDisplayFragment extends Fragment {
     CardsDisplayViewModel cardsDisplayViewModel;
     FragmentCardsDisplayBinding binding;
+    SelectableItemViewModel<CommCard> selectableItemViewModel;
 
     public static CardsDisplayFragment newInstance(String sessionLabelName) {
         Bundle args = new Bundle();
@@ -71,7 +75,7 @@ public class CardsDisplayFragment extends Fragment {
 
     private RecyclerViewFragment createRecyclerView() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-        CardsAdapter cardsAdapter = new CardsAdapter(this.cardsDisplayViewModel.getCurrentCardsList());
+        CardsAdapter cardsAdapter = new CardsAdapter(selectableItemViewModel, this.cardsDisplayViewModel.getCurrentCardsList());
 
         RecyclerViewFragment cardsRVFragment = RecyclerViewFragment.newInstance(gridLayoutManager, cardsAdapter);
         cardsRVFragment.setPadding(60, 60, 60, 60);

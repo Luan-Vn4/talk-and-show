@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import br.com.talk_and_show.databinding.ActivityMainBinding;
+import br.com.talk_and_show.fragments.CardDetailedFragment;
 import br.com.talk_and_show.fragments.CardsDisplayFragment;
 import br.com.talk_and_show.fragments.HomePageFragment;
 import br.com.talk_and_show.fragments.toolbars.hometoolbar.HomeToolbarFragment;
+import br.com.talk_and_show.models.CommCard;
 import br.com.talk_and_show.models.CommCardCategories;
 import br.com.talk_and_show.viewmodels.MainActivityViewModel;
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         this.mainActivityViewModel.getCurrentSelectedCategory().observe(this, this::onSelectedCategoryObserver);
+        this.mainActivityViewModel.getCurrentSelectedCard().observe(this, this::onSelectedCardObserver);
 
         /* Caso a Activity esteja sendo recriada, não é necessário adicionar os Fragments,
            pois o método da superclasse ".onCreate" já restaura as instâncias */
@@ -42,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
             .replace(this.binding.activityMainFragmentHomepage.getId(), CardsDisplayFragment.newInstance(commCard.getName()))
             .addToBackStack("navigateToCategory")
             .commit();
+    }
+    private void onSelectedCardObserver (CommCard commCard) {
+        this.getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(this.binding.activityMainFragmentHomepage.getId(), CardDetailedFragment.newInstance(commCard.getName()))
+                .addToBackStack("navigateToCard")
+                .commit();
     }
 
     private void configureFragments() {

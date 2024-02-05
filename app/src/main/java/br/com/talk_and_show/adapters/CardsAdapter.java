@@ -16,17 +16,14 @@ import java.util.List;
 import br.com.talk_and_show.R;
 import br.com.talk_and_show.databinding.FragmentCardBinding;
 import br.com.talk_and_show.models.CommCard;
+import br.com.talk_and_show.models.CommCardCategories;
+import br.com.talk_and_show.viewmodels.SelectableItemViewModel;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHolder> {
 
-    private ArrayList<CommCard> cardList;
-    private OnItemClickListener listener;
+    private static SelectableItemViewModel<CommCard> selectableItemViewModel;
 
 
-    public interface OnItemClickListener {
-        void onItemClick(CommCard position);
-
-    }
 
     static class CardsViewHolder extends RecyclerView.ViewHolder {
         private final CardView cardBackground;
@@ -42,34 +39,23 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
             this.cardImage = itemView.findViewById(R.id.fragment_card_image);
         }
 
-        void bind(final CommCard card, final OnItemClickListener listener) {
+        void bind(final CommCard card) {
             this.cardBackground.setBackgroundTintList(ContextCompat.getColorStateList(
                     this.itemView.getContext(), card.getCategory().getColor()));
             this.cardImage.setImageResource(card.getImage());
             this.cardName.setText(card.getName());
 
-
-            // Adiciona um ouvinte de clique para o item da lista
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        listener.onItemClick(card);
-                    }
-                }
-            });
         }
 
     }
 
     // Atributos
     private List<CommCard> cardsList;
-    private OnItemClickListener itemClickListener;
 
     // Métodos de acesso
-    public CardsAdapter(List<CommCard> cardsList) {
+    public CardsAdapter(SelectableItemViewModel<CommCard> selectableItemViewModel, List<CommCard> cardsList) {
+        this.selectableItemViewModel = selectableItemViewModel;
         this.cardsList = cardsList;
-        this.itemClickListener = itemClickListener;
     }
 
     // Métodos
@@ -87,7 +73,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
     @Override
     public void onBindViewHolder(@NonNull CardsViewHolder holder, int position) {
         CommCard card = this.cardsList.get(position);
-        holder.bind(card, itemClickListener);
+        holder.bind(card);
     }
 
     @Override
@@ -105,10 +91,5 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
         return position;
     }
 
-    public CommCard getCard(int position) {
-        if (position >= 0 && position < cardsList.size()) {
-            return cardsList.get(position);
-        }
-        return null;
-    }
+
 }

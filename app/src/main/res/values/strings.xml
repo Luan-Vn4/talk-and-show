@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Talk-and-show</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="activty_main_navigation_view_open">Opened</string>
+    <string name="activity_main_navigation_view_close">Closed</string>
+</resources>

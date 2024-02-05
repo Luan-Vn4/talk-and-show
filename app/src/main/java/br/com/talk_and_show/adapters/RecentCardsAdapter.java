@@ -39,7 +39,7 @@ public class RecentCardsAdapter extends RecyclerView.Adapter<RecentCardsAdapter.
         }
 
         void bind(CommCard card) {
-            this.cardName.setText(card.getName());
+            this.cardName.setText((CharSequence) card.getName());
             this.cardBackground.setBackgroundTintList(ContextCompat.getColorStateList(
                                 this.itemView.getContext(), card.getCategory().getColor()));
             this.cardImage.setImageResource(card.getImage());

@@ -24,6 +24,7 @@ import br.com.talk_and_show.viewmodels.SelectableItemViewModel;
 
 public class HomePageFragment extends Fragment {
     private SelectableItemViewModel<CommCardCategories> selectableItemViewModel;
+    private SelectableItemViewModel<CommCard> selectableItemViewModelCommCard;
     private FragmentHomepageBinding binding;
 
     public static HomePageFragment newInstance(SelectableItemViewModel<CommCardCategories> cardsDisplayViewModel) {
@@ -71,7 +72,7 @@ public class HomePageFragment extends Fragment {
     private RecyclerViewFragment createRecentRecyclerViewFragment() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 this.binding.getRoot().getContext(), LinearLayoutManager.HORIZONTAL, false);
-        CardsAdapter cardsAdapter = new CardsAdapter(getCardsList());
+        CardsAdapter cardsAdapter = new CardsAdapter(selectableItemViewModelCommCard, getCardsList());
 
         RecyclerViewFragment recentCardRV = RecyclerViewFragment.newInstance(layoutManager, cardsAdapter);
         recentCardRV.setPadding(60, 30, 60, 30);
