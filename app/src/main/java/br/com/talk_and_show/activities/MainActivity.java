@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         this.mainActivityViewModel.getCurrentSelectedCategory().observe(this, this::onSelectedCategoryObserver);
-        this.mainActivityViewModel.getCurrentSelectedCard().observe(this, this::onSelectedCardObserver);
+        //this.mainActivityViewModel.getCurrentSelectedCard().observe(this, this::onSelectedCardObserver);
 
         /* Caso a Activity esteja sendo recriada, não é necessário adicionar os Fragments,
            pois o método da superclasse ".onCreate" já restaura as instâncias */
@@ -46,13 +46,7 @@ public class MainActivity extends AppCompatActivity {
             .addToBackStack("navigateToCategory")
             .commit();
     }
-    private void onSelectedCardObserver (CommCard commCard) {
-        this.getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
-                .replace(this.binding.activityMainFragmentHomepage.getId(), CardDetailedFragment.newInstance(commCard.getName()))
-                .addToBackStack("navigateToCard")
-                .commit();
-    }
+
 
     private void configureFragments() {
         getSupportFragmentManager()

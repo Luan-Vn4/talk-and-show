@@ -1,7 +1,6 @@
 package br.com.talk_and_show.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-
-import br.com.talk_and_show.adapters.CardsAdapter;
 import br.com.talk_and_show.databinding.FragmentCardsDetailedBinding;
-import br.com.talk_and_show.fragments.listviews.RecyclerViewFragment;
-import br.com.talk_and_show.fragments.listviews.itemdecorations.ItemOffsetDecoration;
 import br.com.talk_and_show.models.CommCard;
 import br.com.talk_and_show.viewmodels.DetailedCardViewModel;
 import br.com.talk_and_show.viewmodels.SelectableItemViewModel;
