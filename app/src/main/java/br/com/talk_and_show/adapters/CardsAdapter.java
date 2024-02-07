@@ -26,12 +26,14 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
 
 
     static class CardsViewHolder extends RecyclerView.ViewHolder {
+        private final View rootView;
         private final CardView cardBackground;
         private final TextView cardName;
         private final ImageView cardImage;
 
         CardsViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.rootView = itemView;
 
             // Extracting view cards fields to fill
             this.cardBackground = itemView.findViewById(R.id.cardBackground);
@@ -39,12 +41,18 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
             this.cardImage = itemView.findViewById(R.id.fragment_card_image);
         }
 
+        private void setRootViewListener(CommCard card) {
+            this.rootView.setOnClickListener(view ->
+                selectableItemViewModel.onItemSelected(card)
+            );
+        }
+
         void bind(final CommCard card) {
             this.cardBackground.setBackgroundTintList(ContextCompat.getColorStateList(
                     this.itemView.getContext(), card.getCategory().getColor()));
             this.cardImage.setImageResource(card.getImage());
             this.cardName.setText(card.getName());
-
+            this.setRootViewListener(card);
         }
 
     }

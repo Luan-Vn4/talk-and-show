@@ -1,6 +1,7 @@
 package br.com.talk_and_show.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,11 @@ public class CardDetailedFragment extends Fragment{
 
 
 
-    public static CardDetailedFragment newInstance(String cardName) {
+    public static CardDetailedFragment newInstance(String cardName, String cardCategory, int cardImage) {
         Bundle args = new Bundle();
         args.putString("CardName", cardName);
+        args.putString("CardCategory", cardCategory);
+        args.putInt("CardImage", cardImage);
 
         CardDetailedFragment detailedCardFragment = new CardDetailedFragment();
         detailedCardFragment.setArguments(args);
@@ -37,6 +40,14 @@ public class CardDetailedFragment extends Fragment{
         super.onCreate(savedInstanceState);
         this.detailedCardViewModel = new ViewModelProvider(this).get(DetailedCardViewModel.class);
 
+        if (this.getArguments() != null) {
+            Log.w("Argumento", this.getArguments().getString("CardName"));
+            detailedCardViewModel.setName(this.getArguments().getString("CardName"));
+            Log.w("Argumento", this.getArguments().getString("CardCategory"));
+            detailedCardViewModel.setCategory(this.getArguments().getString("CardCategory"));
+            Log.w("Argumento", String.valueOf(this.getArguments().getInt("CardImage")));
+            detailedCardViewModel.setImage(this.getArguments().getInt("CardImage"));
+        }
     }
 
     @Nullable
@@ -50,10 +61,11 @@ public class CardDetailedFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        this.binding.titulo.setText(detailedCardViewModel.getCurrentName());
-        this.binding.categoria.setText(detailedCardViewModel.getCurrentCategory());
-        this.binding.imagemSelecionada.setBackgroundResource(detailedCardViewModel.getCurrentImage());
+        this.binding.titulo.setText(detailedCardViewModel.getName());
+        this.binding.categoria.setText(detailedCardViewModel.getCategory());
+        this.binding.imagemSelecionada.setBackgroundResource(detailedCardViewModel.getImage());
 
+        
     }
 
 }

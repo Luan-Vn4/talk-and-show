@@ -6,10 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.Objects;
+
 import br.com.talk_and_show.models.CommCard;
 import br.com.talk_and_show.models.CommCardCategories;
+import br.com.talk_and_show.viewmodels.uistates.CardDisplayUISate;
 
-public class DetailedCardViewModel extends AndroidViewModel implements SelectableItemViewModel<CommCardCategories>{
+public class DetailedCardViewModel extends AndroidViewModel implements SelectableItemViewModel<CommCard>{
 
     private final MutableLiveData<CommCard> currentSelectedCard = new MutableLiveData<>();
 
@@ -22,33 +25,32 @@ public class DetailedCardViewModel extends AndroidViewModel implements Selectabl
     public MutableLiveData<CommCard> getCurrentSelectedCard() {
         return currentSelectedCard;
     }
+    private String name;
+    private String category;
+    private int image;
 
-    public String getCurrentName() {
-        return currentSelectedCard.getValue().getName();
-    }
-    public String getCurrentCategory() {
-       return currentSelectedCard.getValue().getCategory().toString();
-    }
-    public int getCurrentImage() {
-        return currentSelectedCard.getValue().getImage();
-    }
-    public void setCurrentName(String currentName) {
-        this.currentSelectedCard.setValue(new CommCard(currentName,
-                currentSelectedCard.getValue().getCategory(), currentSelectedCard.getValue().getImage()));
-    }
-    public void setCurrentCategory(CommCardCategories currentCategory) {
-        this.currentSelectedCard.setValue(new CommCard(currentSelectedCard.getValue().getName(),
-                currentCategory, currentSelectedCard.getValue().getImage()));
-    }
-    public void setCurrentImage(int currentImage) {
-        this.currentSelectedCard.setValue(new CommCard(currentSelectedCard.getValue().getName(),
-                currentSelectedCard.getValue().getCategory(), currentImage));
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    @Override
-    public void onItemSelected(CommCardCategories dataObject) {
+    public String getCategory() {
+        return category;
+    }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     @Override
@@ -56,4 +58,8 @@ public class DetailedCardViewModel extends AndroidViewModel implements Selectabl
         this.currentSelectedCard.setValue(currentSelectedCard);
     }
 
+    public void fetchCardsToDisplay() {
+        this.currentSelectedCard.setValue(Objects.requireNonNull(currentSelectedCard.getValue()
+        ));
+    }
 }

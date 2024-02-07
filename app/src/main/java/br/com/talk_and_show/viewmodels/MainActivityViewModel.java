@@ -30,9 +30,4 @@ public class MainActivityViewModel extends AndroidViewModel implements Selectabl
         this.currentSelectedCategory.setValue(selectedCategory);
     }
 
-    @Override
-    public void onItemSelected(CommCard currentSelectedCard) {
-        this.currentSelectedCard.setValue(currentSelectedCard);
-    }
-
 }

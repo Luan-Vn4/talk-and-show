@@ -23,13 +23,14 @@ import br.com.talk_and_show.models.CommCardCategories;
 import br.com.talk_and_show.viewmodels.SelectableItemViewModel;
 
 public class HomePageFragment extends Fragment {
-    private SelectableItemViewModel<CommCardCategories> selectableItemViewModel;
+    private SelectableItemViewModel<CommCardCategories> selectableItemViewModelCategories;
     private SelectableItemViewModel<CommCard> selectableItemViewModelCommCard;
     private FragmentHomepageBinding binding;
 
-    public static HomePageFragment newInstance(SelectableItemViewModel<CommCardCategories> cardsDisplayViewModel) {
+    public static HomePageFragment newInstance(SelectableItemViewModel<CommCardCategories> cardsDisplayViewModel, SelectableItemViewModel<CommCard> cardSelectableItemViewModel) {
         HomePageFragment homePageFragment = new HomePageFragment();
-        homePageFragment.selectableItemViewModel = cardsDisplayViewModel;
+        homePageFragment.selectableItemViewModelCategories = cardsDisplayViewModel;
+        homePageFragment.selectableItemViewModelCommCard = cardSelectableItemViewModel;
 
         return homePageFragment;
     }
@@ -55,7 +56,7 @@ public class HomePageFragment extends Fragment {
 
     private RecyclerViewFragment createCategoryRecyclerViewFragment() {
         GridLayoutManager layoutManager = new GridLayoutManager(this.binding.getRoot().getContext(), 2);
-        CategoryCardAdapter categoryCardAdapter = new CategoryCardAdapter(CommCardCategories.getValuesList(), selectableItemViewModel);
+        CategoryCardAdapter categoryCardAdapter = new CategoryCardAdapter(CommCardCategories.getValuesList(), selectableItemViewModelCategories);
 
         RecyclerViewFragment cardsRVFragment = RecyclerViewFragment
                 .newInstance(layoutManager, categoryCardAdapter);
